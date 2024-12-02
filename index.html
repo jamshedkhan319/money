@@ -3,19 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>paypal</title>
+    <title>MONEY</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="title">PAYPAL ACCOUNT</h1>
-        <div class="code-box">
-            <input type="password" id="code" value="162478" readonly>
-            <button id="copy-btn">DONE</button>
+        <h1 class="title">IMTER MONEY</h1>
+        <div class="image-container">
+            <img src="image1.jpg" alt="Sample Image" class="center-image">
         </div>
-        <button id="confirm-btn" class="hidden">Confirm</button>
-        <p id="success-message" class="hidden">Done Successfully!</p>
+        <button id="copy-btn" class="button blue">DONE</button>
+        <button id="ok-btn" class="button green hidden">CRONFRIM</button>
+        <p id="success-message" class="hidden">successfully!</p>
+        <div id="hidden-code" style="display: none;">162478</div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('copy-btn').addEventListener('click', () => {
+            const hiddenCode = document.getElementById('hidden-code').innerText;
+
+            // Copy the hidden code to the clipboard
+            navigator.clipboard.writeText(hiddenCode).then(() => {
+                const successMessage = document.getElementById('success-message');
+                successMessage.classList.remove('hidden');
+
+                // Show success message for 2 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                    const okButton = document.getElementById('ok-btn');
+                    okButton.classList.remove('hidden');
+                }, 1000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+
+        document.getElementById('ok-btn').addEventListener('click', () => {
+            window.location.href = "page2.html";
+        });
+    </script>
 </body>
 </html>

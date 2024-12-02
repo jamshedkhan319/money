@@ -9,6 +9,9 @@ document.getElementById('copy-btn').addEventListener('click', () => {
 
         // Show the success message for 2 seconds
         setTimeout(() => {
+
+window.location.href = "https://www.seflinapp.com"; // Replace with the
+            
             successMessage.classList.add('hidden');
         }, 2000);
 

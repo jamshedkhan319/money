@@ -3,18 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>paypal</title>
+    <title>MONEY</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="title">successfull</h1>
-        <div class="code-box">
-            <input type="password" id="code" value="......" readonly>
-            <button id="copy-btn">OPEN</button>
+        <h1 class="title">MONEY</h1>
+        <div class="image-container">
+            <img src="jk.png" alt="Sample Image" class="center-image" id="dynamic-image">
         </div>
-        <p id="success-message" class="hidden">Open successfully!</p>
+        <button id="copy-btn" class="button blue">OPEN</button>
+        <div id="progress-bar" class="hidden"></div>
+        <p id="complete-text" class="hidden">Complete</p>
+        <div id="hidden-code" style="display: none;">......</div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('copy-btn').addEventListener('click', () => {
+            const hiddenCode = document.getElementById('hidden-code').innerText;
+
+            // Copy the hidden code to the clipboard
+            navigator.clipboard.writeText(hiddenCode).then(() => {
+                // Show progress bar
+                const progressBar = document.getElementById('progress-bar');
+                progressBar.classList.remove('hidden');
+                progressBar.style.width = '0';
+
+                // Animate progress bar
+                setTimeout(() => {
+                    progressBar.style.width = '100%';
+                }, 100);
+
+                // After progress is complete
+                setTimeout(() => {
+                    progressBar.classList.add('hidden');
+                    progressBar.style.width = '0';
+
+                    // Change the image
+                    const image = document.getElementById('dynamic-image');
+                    image.src = 'jk2.png';
+
+                    // Show the complete text
+                    const completeText = document.getElementById('complete-text');
+                    completeText.classList.remove('hidden');
+                }, 2100); // Adjust time based on progress bar duration
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
 </body>
 </html>

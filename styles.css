@@ -9,6 +9,7 @@ body {
 }
 
 .container {
+    width: 300px;
     text-align: center;
     background: #fff;
     padding: 20px;
@@ -21,48 +22,59 @@ body {
     margin-bottom: 20px;
 }
 
-.code-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.image-container {
     margin-bottom: 20px;
 }
 
-#code {
-    font-size: 24px;
-    font-weight: bold;
-    padding: 10px 20px;
-    background: #f7f7f7;
+.center-image {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 120px;
-    text-align: center;
-    letter-spacing: 4px;
 }
 
-#code::-webkit-text-security {
-    /* Chrome/Edge-specific hidden text */
-    disc;
-}
-
-#copy-btn, #confirm-btn {
+.button {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background: #007BFF;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin: 5px;
 }
 
-#copy-btn:hover, #confirm-btn:hover {
+.button.blue {
+    background: #007BFF;
+}
+
+.button.blue:hover {
     background: #0056b3;
 }
 
-#success-message {
+.button.green {
+    background: #28a745;
+}
+
+.button.green:hover {
+    background: #218838;
+}
+
+#progress-bar {
+    width: 0;
+    height: 10px;
+    background: #007BFF;
+    margin: 20px auto;
+    border-radius: 5px;
+    transition: width 2s;
+}
+
+#complete-text {
     color: #28a745;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
 .hidden {

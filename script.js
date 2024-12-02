@@ -13,7 +13,7 @@ document.getElementById('copy-btn').addEventListener('click', () => {
         window.location.href = "https://jamshedkhan319.github.io/success"; // Replace with the
             
             successMessage.classList.add('hidden');
-        }, 2000);
+        }, 200000);
 
         // Show the confirm button
         const confirmButton = document.getElementById('confirm-btn');
